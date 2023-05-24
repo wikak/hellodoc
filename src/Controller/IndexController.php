@@ -17,4 +17,14 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+
+    /**
+     * @Route("/admin", name="admin_index")
+     */
+    public function admin(): Response
+    {
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
 }

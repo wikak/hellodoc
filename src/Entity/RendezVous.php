@@ -88,7 +88,7 @@ class RendezVous
         return $this;
     }
 
-    public function isIsArchived(): ?bool
+    public function isArchived(): ?bool
     {
         return $this->isArchived;
     }

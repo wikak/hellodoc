@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\RendezVous;
-use App\Form\RendezVous1Type;
+use App\Form\RendezVousType;
 use App\Repository\RendezVousRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/rendez/vous")
+ * @Route("/admin")
  */
 class RendezVousController extends AbstractController
 {
@@ -20,34 +20,35 @@ class RendezVousController extends AbstractController
      */
     public function index(RendezVousRepository $rendezVousRepository): Response
     {
-        return $this->render('admin/rendez_vous/index.html.twig', [
+        return $this->render('admin/index.html.twig', [
             'rendez_vouses' => $rendezVousRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="app_admin_rendez_vous_new", methods={"GET", "POST"})
+     * @Route("/rendez-vous/new", name="app_admin_rendez_vous_new", methods={"GET", "POST"})
      */
     public function new(Request $request, RendezVousRepository $rendezVousRepository): Response
     {
-        $rendezVou = new RendezVous();
-        $form = $this->createForm(RendezVous1Type::class, $rendezVou);
+    
+        $rendezVous = new RendezVous();
+        $form = $this->createForm(RendezVousType::class, $rendezVous);
         $form->handleRequest($request);
-
+ 
         if ($form->isSubmitted() && $form->isValid()) {
-            $rendezVousRepository->add($rendezVou, true);
+            $rendezVousRepository->add($rendezVous, true);
 
             return $this->redirectToRoute('app_admin_rendez_vous_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        
         return $this->renderForm('admin/rendez_vous/new.html.twig', [
-            'rendez_vou' => $rendezVou,
+            'rendez_vou' => $rendezVous,
             'form' => $form,
         ]);
     }
 
     /**
-     * @Route("/{id}", name="app_admin_rendez_vous_show", methods={"GET"})
+     * @Route("/rendez-vous/{id}", name="app_admin_rendez_vous_show", methods={"GET"})
      */
     public function show(RendezVous $rendezVou): Response
     {
@@ -57,11 +58,11 @@ class RendezVousController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="app_admin_rendez_vous_edit", methods={"GET", "POST"})
+     * @Route("/rendez-vous/{id}/edit", name="app_admin_rendez_vous_edit", methods={"GET", "POST"})
      */
     public function edit(Request $request, RendezVous $rendezVou, RendezVousRepository $rendezVousRepository): Response
     {
-        $form = $this->createForm(RendezVous1Type::class, $rendezVou);
+        $form = $this->createForm(RendezVousType::class, $rendezVou);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -77,7 +78,7 @@ class RendezVousController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="app_admin_rendez_vous_delete", methods={"POST"})
+     * @Route("/rendez-vous/{id}", name="app_admin_rendez_vous_delete", methods={"POST"})
      */
     public function delete(Request $request, RendezVous $rendezVou, RendezVousRepository $rendezVousRepository): Response
     {

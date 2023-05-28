@@ -27,10 +27,6 @@ class RendezVous
      */
     private $date_du_rdv;
 
-    /**
-     * @ORM\Column(type="time")
-     */
-    private $heure_du_rdv;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -72,18 +68,6 @@ class RendezVous
     public function setDateDuRdv(\DateTimeInterface $date_du_rdv): self
     {
         $this->date_du_rdv = $date_du_rdv;
-
-        return $this;
-    }
-
-    public function getHeureDuRdv(): ?\DateTimeInterface
-    {
-        return $this->heure_du_rdv;
-    }
-
-    public function setHeureDuRdv(\DateTimeInterface $heure_du_rdv): self
-    {
-        $this->heure_du_rdv = $heure_du_rdv;
 
         return $this;
     }

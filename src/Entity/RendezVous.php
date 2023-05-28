@@ -43,9 +43,10 @@ class RendezVous
     private $createdBy;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=Doctor::class, inversedBy="rendezVouses")
      */
     private $doctor;
+
 
     public function getId(): ?int
     {
@@ -112,15 +113,16 @@ class RendezVous
         return $this;
     }
 
-    public function getDoctor(): ?string
+    public function getDoctor(): ?Doctor
     {
         return $this->doctor;
     }
 
-    public function setDoctor(?string $doctor): self
+    public function setDoctor(?Doctor $doctor): self
     {
         $this->doctor = $doctor;
 
         return $this;
     }
+
 }

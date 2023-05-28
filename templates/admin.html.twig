@@ -135,7 +135,12 @@ License: You must have a valid license purchased only from themeforest(the above
 												<ul class="menu-nav">
 													<li class="menu-item menu-item-active" aria-haspopup="true">
 														<a href="{{ path('app_admin_rendez_vous_index')}}" class="menu-link">
-															<span class="menu-text">Home</span>
+															<span class="menu-text">RDV</span>
+														</a>
+													</li>
+													<li class="menu-item" aria-haspopup="true">
+														<a href="{{ path('app_admin_doctor_index')}}" class="menu-link">
+															<span class="menu-text">Doctor</span>
 														</a>
 													</li>
 												</ul>
@@ -176,8 +181,9 @@ License: You must have a valid license purchased only from themeforest(the above
 						class="d-flex flex-row flex-column-fluid container">
 						<!--begin::Content Wrapper-->
 						<div class="main d-flex flex-column flex-row-fluid">
-							<div class="content flex-column-fluid" id="kt_content">
-								<!--begin::Dashboard-->
+							<div class="content flex-column-fluid" id="kt_content"> 
+							{% block title %}
+							<!--begin::Dashboard-->
 								<!--begin::Advance Table Widget 5-->
 									<div
 									class="card card-custom card-border gutter-b"> <!--begin::Header-->
@@ -190,32 +196,35 @@ License: You must have a valid license purchased only from themeforest(the above
 										</div>
 									</div>
 									<!--end::Header-->
-									<!--begin::Body-->
-									<div class="card-body py-0"> {% block body %}{% endblock %}
-										</div>
-										<!--end::Body-->
+							{% endblock %}
+								<!--begin::Body-->
+								<div class="card-body py-0"> {% block body %}{% endblock %}
 									</div>
-									<!--end::Advance Table Widget 5-->
-									<!--end::Dashboard-->
+									<!--end::Body-->
 								</div>
-								<!--end::Content-->
+								<!--end::Advance Table Widget 5-->
+								<!--end::Dashboard-->
 							</div>
-							<!--begin::Content Wrapper-->
+							<!--end::Content-->
 						</div>
-						<!--end::Container-->
+						<!--begin::Content Wrapper-->
 					</div>
-					<!--end::Wrapper-->
+					<!--end::Container-->
 				</div>
-				<!--end::Page-->
+				<!--end::Wrapper-->
 			</div>
-			<!--end::Main-->
-			<!--end::Demo Panel-->
-			<script>
-				var HOST_URL = "https://keenthemes.com/metronic/tools/preview";
-			</script>
-			<!--begin::Global Config(global config for global JS scripts)-->
-			<script>
-				var KTAppSettings = {
+			<!--end::Page-->
+		</body>
+	</html>
+</div>
+<!--end::Main-->
+<!--end::Demo Panel-->
+<script>
+	var HOST_URL = "https://keenthemes.com/metronic/tools/preview";
+</script>
+<!--begin::Global Config(global config for global JS scripts)-->
+<script>
+	var KTAppSettings = {
 "breakpoints": {
 "sm": 576,
 "md": 768,
@@ -273,22 +282,19 @@ License: You must have a valid license purchased only from themeforest(the above
 },
 "font-family": "Poppins"
 };
-			</script>
-			<!--end::Global Config-->
-			<!--begin::Global Theme Bundle(used by all pages)-->
-			<script src="/assets/metronics/plugins/global/plugins.bundle.js"></script>
-			<script src="/assets/metronics/plugins/custom/prismjs/prismjs.bundle.js"></script>
-			<script src="/assets/metronics/js/scripts.bundle.js"></script>
-			<!--end::Global Theme Bundle-->
-			<!--begin::Page Vendors(used by this page)-->
-			<script src="/assets/metronics/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-			<script src="/assets/metronics/js/bootstrap-datetimepicker.js"></script>
-			<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-			<!--end::Page Vendors-->
-			<!--begin::Page Scripts(used by this page)-->
-			<script src="/assets/metronics/js/pages/widgets.js"></script>
-			<!--end::Page Scripts-->
-		</body>
-		<!--end::Body-->
-	</html>
+</script>
+<!--end::Global Config-->
+<!--begin::Global Theme Bundle(used by all pages)-->
+<script src="/assets/metronics/plugins/global/plugins.bundle.js"></script>
+<script src="/assets/metronics/plugins/custom/prismjs/prismjs.bundle.js"></script>
+<script src="/assets/metronics/js/scripts.bundle.js"></script>
+<!--end::Global Theme Bundle-->
+<!--begin::Page Vendors(used by this page)-->
+<script src="/assets/metronics/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+<script src="/assets/metronics/js/bootstrap-datetimepicker.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<!--end::Page Vendors-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="/assets/metronics/js/pages/widgets.js"></script>
+<!--end::Page Scripts--></body><!--end::Body--></html>

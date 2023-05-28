@@ -25,9 +25,8 @@
 							<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{ rendez_vous.label }}</span>
 						</td>
 						<td>
-							<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{ rendez_vous.dateDuRdv ? rendez_vous.dateDuRdv|date('Y-m-d') : '' }}
-								|
-								{{ rendez_vous.heureDuRdv ? rendez_vous.heureDuRdv|date('H:i:s') : '' }}
+							<span class="text-dark-75 font-weight-bolder d-block font-size-lg">{{ rendez_vous.dateDuRdv ? rendez_vous.dateDuRdv|date('d-m-Y H:i') : '' }}
+								
 							</span>
 						</td>
 						<td>

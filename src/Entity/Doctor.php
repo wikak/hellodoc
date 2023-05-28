@@ -80,4 +80,8 @@ class Doctor
 
         return $this;
     }
+    public function __toString()
+    {
+        return $this->Nom; // Assuming `login` is a property of the User class
+    }
 }

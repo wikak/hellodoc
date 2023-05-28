@@ -8,7 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;  
+use App\Entity\Doctor;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 
@@ -18,7 +19,7 @@ class RendezVousType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('label',null, [
+            ->add('label', null, [
                 'label' => 'Description du rdv',
             ])
             ->add('date_du_rdv', DateTimeType::class, [
@@ -26,11 +27,10 @@ class RendezVousType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd HH:mm',
                 'placeholder' => 'JJ-MM-AAAA HH:MM',
-                //'row_attr' => ['id' => 'kt_datetimepicker_4_2'],
+                'row_attr' => ['id' => 'kt_datetimepicker_4_2'],
                 // prevents rendering it as type="date", to avoid HTML5 date pickers
                 'html5' => false,
             ])
-          //  ->add('heure_du_rdv')
             ->add('isArchived', CheckboxType::class, [
                 'label' => 'Confirmation',
                 'data' => true,
@@ -39,14 +39,11 @@ class RendezVousType extends AbstractType
                     'class' => 'form-check-input',
                 ],
             ])
-            ->add('doctor', ChoiceType::class, [
-                'choices'  => [
-                    'Dentiste' => 'dentiste',
-                    'Pediatre' => 'pediatre',
-                    'Cardiologue' => 'cardiologue',
-                ],
+            ->add('doctor', EntityType::class, [
+                'class' => Doctor::class,
+                'choice_label' => 'nom'
             ])
-         //   ->add('createdBy')
+            //   ->add('createdBy')
         ;
     }
 

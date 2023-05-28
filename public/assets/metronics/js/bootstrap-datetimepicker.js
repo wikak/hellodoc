@@ -59,7 +59,7 @@ var KTBootstrapDatetimepicker = function () {
             todayHighlight: true,
             autoclose: true,
             pickerPosition: 'bottom-right',
-            format: 'yyyy-mm/-d hh:ii:ss'
+            format: 'yyyy-mm-dd hh:ii'
         });
 
         $('#kt_datetimepicker_4_3').datetimepicker({

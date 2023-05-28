@@ -3,7 +3,7 @@
 {% block title %}RendezVous index{% endblock %}
 
 {% block body %}
-    <h1>RendezVous index</h1>
+    <h1>Mes RendezVous</h1>
 
     <table class="table">
         <thead>
@@ -11,7 +11,6 @@
                 <th>Id</th>
                 <th>Label</th>
                 <th>Date_du_rdv</th>
-                <th>Heure_du_rdv</th>
                 <th>IsArchived</th>
                 <th>Doctor</th>
                 <th>actions</th>
@@ -22,12 +21,10 @@
             <tr>
                 <td>{{ rendez_vou.id }}</td>
                 <td>{{ rendez_vou.label }}</td>
-                <td>{{ rendez_vou.dateDuRdv ? rendez_vou.dateDuRdv|date('Y-m-d') : '' }}</td>
-                <td>{{ rendez_vou.heureDuRdv ? rendez_vou.heureDuRdv|date('H:i:s') : '' }}</td>
+                <td>{{ rendez_vou.dateDuRdv ? rendez_vou.dateDuRdv|date('d-m-Y H:i') : '' }}</td>
                 <td>{{ rendez_vou.isArchived ? 'Yes' : 'No' }}</td>
                 <td>{{ rendez_vou.doctor }}</td>
                 <td>
-                    <a href="{{ path('app_admin_rendez_vous_show', {'id': rendez_vou.id}) }}">show</a>
                     <a href="{{ path('app_admin_rendez_vous_edit', {'id': rendez_vou.id}) }}">edit</a>
                 </td>
             </tr>

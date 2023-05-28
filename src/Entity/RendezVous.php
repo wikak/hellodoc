@@ -23,7 +23,7 @@ class RendezVous
     private $label;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date_du_rdv;
 

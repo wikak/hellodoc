@@ -28,7 +28,7 @@ var KTBootstrapDatetimepicker = function () {
             todayHighlight: true,
             autoclose: true,
             pickerPosition: 'bottom-left',
-            format: 'yyyy/mm/dd hh:ii'
+            format: 'yyyy-mm-dd hh:ii'
         });
 
         // today button
@@ -59,7 +59,7 @@ var KTBootstrapDatetimepicker = function () {
             todayHighlight: true,
             autoclose: true,
             pickerPosition: 'bottom-right',
-            format: 'yyyy/mm/dd hh:ii:ss'
+            format: 'yyyy-mm/-d hh:ii:ss'
         });
 
         $('#kt_datetimepicker_4_3').datetimepicker({
